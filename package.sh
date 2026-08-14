@@ -9,7 +9,8 @@ ZIP_FILE="${SCRIPT_DIR}/${EXTENSION_NAME}.zip"
 
 # Create zip file, excluding .git folder and any existing .zip files
 cd "$SCRIPT_DIR"
-7z a -tzip "$ZIP_FILE" -r * -x!".git"  -x!"*.zip"
+rm -f "$ZIP_FILE"
+7z a -tzip "$ZIP_FILE" -r * -x!".git"  -x!"*.zip" -x!"*.sh"
 
 if [ $? -eq 0 ]; then
   echo "✓ Package created: $ZIP_FILE"
