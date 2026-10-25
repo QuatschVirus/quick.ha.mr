@@ -1,5 +1,7 @@
 #!/bin/bash
 
+# ! This file was created using Generative AI !
+
 # Package all files relevant for the browser extension into a .zip file
 # Excludes: old archives and .git folder
 
@@ -7,10 +9,10 @@ SCRIPT_DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
 EXTENSION_NAME="quick-ha-mr"
 ZIP_FILE="${SCRIPT_DIR}/${EXTENSION_NAME}.zip"
 
-# Create zip file, excluding .git folder and any existing .zip files
+# Create zip file
 cd "$SCRIPT_DIR"
 rm -f "$ZIP_FILE"
-7z a -tzip "$ZIP_FILE" -r * -x!".git"  -x!"*.zip" -x!"*.sh"
+7z a -tzip "$ZIP_FILE" -r- manifest.json LICENSE README.md background.js icons/* ha.mr/LICENSE ha.mr/docs/alphabets.js ha.mr/docs/compress.js
 
 if [ $? -eq 0 ]; then
   echo "✓ Package created: $ZIP_FILE"

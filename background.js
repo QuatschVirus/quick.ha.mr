@@ -1,5 +1,5 @@
-import { compress } from "./ha.mr/compress.js"
-import { outputAlphabetASCII } from "./ha.mr/alphabets.js"
+import { compress } from "./ha.mr/docs/compress.js"
+import { outputAlphabetASCII } from "./ha.mr/docs/alphabets.js"
 
 chrome.runtime.onInstalled.addListener(function() {
     chrome.contextMenus.create({
@@ -14,7 +14,7 @@ chrome.contextMenus.onClicked.addListener(function(info, tab) {
         case "qhamr-copyCompressedLink":
             if (info.linkUrl) {
                 const compressedPayload = compress(info.linkUrl, outputAlphabetASCII);
-                const compressedLink = `http://ha.mr#${compressedPayload}`;
+                const compressedLink = `https://ha.mr#${compressedPayload}`;
 
                 // navigator.clipboard is unavailable in the background service worker
                 // (no DOM/focused document), so the write has to run in the tab instead.
