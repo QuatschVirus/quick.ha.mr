@@ -13,7 +13,9 @@
     "permissions": [
         "contextMenus",
         "clipboardWrite",
-        "notifications"
+        "notifications",
+        "activeTab",
+        "scripting"
     ],
     "browser_specific_settings": {
         "gecko": {
