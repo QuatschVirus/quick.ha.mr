@@ -1,0 +1,3 @@
+[submodule "ha.mr"]
+	path = ha.mr
+	url = git@github.com:p2r3/ha.mr.git
